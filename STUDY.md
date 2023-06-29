@@ -36,3 +36,26 @@
   - `Link` 태그 안에 `a` 태그를 넣으면 에러 메시지가 나옴
     - https://nextjs.org/docs/messages/invalid-new-link-with-extra-anchor
     - `npx @next/codemod new-link .` 이걸 실행해서 지금 폴더에 있는 new-link를 업그레이드하면 `Link` 태그에도 스타일 적용을 할 수 있다
+
+## 1.4 CSS Modules
+
+- CSS module 패턴을 사용하면 일반적인 CSS를 사용할 수 있게 됨
+- 태그에 className을 추가할 때 이름을 `""`로 쓰는게 아니라 object의 property에 접근하는 방식으로 사용함
+  - ex) `className={style.nav}`
+  - next.js가 임의로 클래스 이름을 생성해줌
+- className이 여러 개면? 두 가지 방식이 있음
+  - 1. ``과 ${} 을 쓰는 방법
+    ```
+      className={`${styles.link} ${
+          router.pathname === "/" ? styles.active : ""
+        }`}
+    ```
+  - 2. 리스트에 넣고 .join() 사용하는 방법
+    ```
+      className={[
+          styles.link,
+          router.pathname === "/about" ? styles.active : "",
+        ].join(" ")}
+    ```
+- 어쨌든 불편함
+  - 파일을 하나 새로 만들어야하고 className을 기억해야 됨
