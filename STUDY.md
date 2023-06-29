@@ -18,3 +18,11 @@
 - 예외로 `index.js`는 /으로 이동함
   - /index 라는 URL은 없음
 - useState 같은 React 기능을 사용하고 싶을 때만 import React 하면 됨
+
+## 1.2 Static Pre Rendering
+
+- Client-Side Rendering : 브라우저가 내 코드와 react를 다운 받고 react가 내 코드를 렌더링 함
+  - create-react-app으로 만들어진 웹 페이지의 태그에는 보통 `<div id=root>` 만 있음
+- Server-Side Rendering : 서버에서 웹 페이지를 렌더링해서 태그를 전송함
+  - 웹 페이지의 태그에 내용이 있음
+  - 사용자가 느린 인터넷 환경에 있어도 흰 화면이 아니라 내용을 확인할 수 있음
