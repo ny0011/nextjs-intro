@@ -26,3 +26,13 @@
 - Server-Side Rendering : 서버에서 웹 페이지를 렌더링해서 태그를 전송함
   - 웹 페이지의 태그에 내용이 있음
   - 사용자가 느린 인터넷 환경에 있어도 흰 화면이 아니라 내용을 확인할 수 있음
+
+## 1.3 Routing
+
+- 링크를 할 때 `a` 태그로 하면 경고 메시지가 나옴
+  - https://nextjs.org/docs/messages/no-html-link-for-pages
+  - a 태그를 사용해서 페이지를 이동하면 전체 페이지 새로 고침이 발생함
+  - 내부 페이지 이동은 next/link의 `Link` 태그를 사용해서 페이지 이동을 빠르게하고 렌더링을 또 하지 않아도 됨
+  - `Link` 태그 안에 `a` 태그를 넣으면 에러 메시지가 나옴
+    - https://nextjs.org/docs/messages/invalid-new-link-with-extra-anchor
+    - `npx @next/codemod new-link .` 이걸 실행해서 지금 폴더에 있는 new-link를 업그레이드하면 `Link` 태그에도 스타일 적용을 할 수 있다
