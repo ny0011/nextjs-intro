@@ -59,3 +59,24 @@
     ```
 - 어쨌든 불편함
   - 파일을 하나 새로 만들어야하고 className을 기억해야 됨
+
+## 1.5 Styles JSX
+
+- 파일을 만드는 대신 style JSX를 사용해서 더 쉽게 CSS 적용을 할 수 있음
+- style 태그에 jsx 속성을 추가하고 {} 안에 백틱(``) 을 열어서 CSS 코드 추가
+  ```
+    <style jsx>{`
+        nav {
+          background-color: tomato;
+        }
+        a {
+          text-decoration: none;
+        }
+        .active {
+          color: yellow;
+        }
+      `}</style>
+  ```
+  - `Link` 태그는 클라이언트 사이드 라우팅을 지원하는 특별한 컴포넌트라서 내부에서는 `a` 태그를 렌더링 하지만
+    `style jsx`에서 정의한 스타일은 `Link` 태그를 지정할 수 없음
+  - `Link` 태그 안에 `a` 태그를 추가해야함. `legacyBehavior` 속성을 추가하면 Link 태그 안에 a 태그를 둘 수 있음
