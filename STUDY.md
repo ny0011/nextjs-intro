@@ -80,3 +80,27 @@
   - `Link` 태그는 클라이언트 사이드 라우팅을 지원하는 특별한 컴포넌트라서 내부에서는 `a` 태그를 렌더링 하지만
     `style jsx`에서 정의한 스타일은 `Link` 태그를 지정할 수 없음
   - `Link` 태그 안에 `a` 태그를 추가해야함. `legacyBehavior` 속성을 추가하면 Link 태그 안에 a 태그를 둘 수 있음
+
+## 1.6 Custom App
+
+- `font-family` 같은 전역 속성을 추가하려면?
+  - `style jsx global`을 사용
+  - 하지만 global 의 범위는 그 태그가 있는 페이지(파일)에만 해당 됨
+- 모든 범위의 파일에 적용하고 싶으면?
+  - `_app.js`을 사용하자
+    - 모든 페이지를 렌더링 하기 전에 `_app.js`를 렌더링하게 됨
+  - 사용법
+    - 1. default 함수를 만들고 매개변수를 두 개 만들어야 함
+      - Component : 다음에 올 페이지
+      - pageProps : 다음에 올 페이지에 들어갈 매개변수
+      ```
+        export default function App({ Component, pageProps }) {
+        }
+      ```
+    - 2. return에 다음에 올 페이지를 추가
+      ```
+        return (
+            <Component {...pageProps} />
+        );
+      ```
+    - 3. 추가하고 싶은대로 return 변경
